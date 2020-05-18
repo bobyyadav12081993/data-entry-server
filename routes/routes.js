@@ -1,8 +1,5 @@
 const routes = require('express').Router();
 const CovidData = require('./../models/covidData.model');
-const moment = require('moment');
-
-// routes.use(ensureAuthenticated);
 
 routes.get('/get/data', (req, res, next) => {
   CovidData.find({}, (err, data) => {
@@ -20,7 +17,7 @@ routes.post('/add/data', (req, res, next) => {
       return next(err);
     }
     res.json({
-      msg: 'Tasks added successfully',
+      msg: 'Data added successfully',
       data,
     });
   });
